@@ -1,6 +1,10 @@
 {
     "editor.formatOnSave": true,
     "editor.detectIndentation": false,
+    "editor.rulers": [
+        80,
+        120
+    ],
     "python.formatting.provider": "black",
     "[python]": {
         "editor.tabSize": 4
