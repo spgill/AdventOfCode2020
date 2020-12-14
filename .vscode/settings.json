@@ -8,5 +8,9 @@
     "python.formatting.provider": "black",
     "[python]": {
         "editor.tabSize": 4
-    }
+    },
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "files.insertFinalNewline": true
 }
