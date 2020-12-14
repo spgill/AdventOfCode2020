@@ -21,8 +21,6 @@ if not inputPath.exists():
 inputHandle = inputPath.open("r")
 inputLines = inputHandle.readlines()
 
-lines = input
-
 # Part 1, Combine all of the input lines until you find one that sums to 2020
 for a, b in itertools.combinations(inputLines, 2):
     a = int(a)
