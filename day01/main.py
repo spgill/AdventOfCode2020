@@ -5,7 +5,7 @@ import sys
 
 # vendor imports
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
 # Initialize colorama
 colorama.init()
