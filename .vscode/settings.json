@@ -12,5 +12,22 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#1e1e47",
+        "activityBar.activeBorder": "#9d4242",
+        "activityBar.background": "#1e1e47",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#9d4242",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "statusBar.background": "#0f0f23",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#1e1e47",
+        "titleBar.activeBackground": "#0f0f23",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#0f0f2399",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#0f0f23"
 }
