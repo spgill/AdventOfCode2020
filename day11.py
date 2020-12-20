@@ -1,26 +1,9 @@
 # stdlib imports
 import copy
 import enum
-import pathlib
-import sys
 
 # vendor imports
-import colorama
-from colorama import Fore, Style
-
-# Initialize colorama
-colorama.init()
-
-# Open input file
-if len(sys.argv) < 2:
-    print(f"{Fore.RED}No input file given{Style.RESET_ALL}")
-    exit()
-inputPath = pathlib.Path(sys.argv[1])
-if not inputPath.exists():
-    print(f"{Fore.RED}Input file does not exist{Style.RESET_ALL}")
-    exit()
-inputHandle = inputPath.open("r")
-inputLines = inputHandle.readlines()
+import spgill.util.aoc as aoc
 
 
 # Enum class representing the values for seat map tiles
@@ -139,31 +122,34 @@ class AdvancedGrid(SimpleGrid):
                     break
 
 
-# Parse the input lines into a map grid, replacing characters with enums
-inputGridData = []
-for line in inputLines:
-    line = line.strip()
-    if not line:
-        continue
-    inputGridData.append([Tile(c) for c in line])
+@aoc.solution
+def main(path):
+    with path.open("r") as inputHandle:
+        inputLines = inputHandle.readlines()
 
-# Print a warning
-print(
-    f"{Fore.YELLOW}Warning:{Style.RESET_ALL} It may take awhile to compute the answers to parts 1 and 2..."
-)
+    # Parse the input lines into a map grid, replacing characters with enums
+    inputGridData = []
+    for line in inputLines:
+        line = line.strip()
+        if not line:
+            continue
+        inputGridData.append([Tile(c) for c in line])
 
-# For part 1, we need to run the simple grid through simulations until it
-# reach equilibrium (no longer changes).
-gridP1 = SimpleGrid(inputGridData)
-gridP1.simulateUntilEquilibrium()
-print(
-    f"{Fore.GREEN}Answer (P1):{Style.RESET_ALL} {gridP1.countTiles(Tile.OccupiedSeat)}"
-)
+    # Print a computation time warning
+    aoc.printComputationWarning()
 
-# For part 2, we need to do the same thing, but using the advanced grid
-# which uses a different line-of-sight algorithm.
-gridP2 = AdvancedGrid(inputGridData)
-gridP2.simulateUntilEquilibrium()
-print(
-    f"{Fore.GREEN}Answer (P2):{Style.RESET_ALL} {gridP2.countTiles(Tile.OccupiedSeat)}"
-)
+    # For part 1, we need to run the simple grid through simulations until it
+    # reach equilibrium (no longer changes).
+    gridP1 = SimpleGrid(inputGridData)
+    gridP1.simulateUntilEquilibrium()
+    aoc.printAnswer(1, gridP1.countTiles(Tile.OccupiedSeat))
+
+    # For part 2, we need to do the same thing, but using the advanced grid
+    # which uses a different line-of-sight algorithm.
+    gridP2 = AdvancedGrid(inputGridData)
+    gridP2.simulateUntilEquilibrium()
+    aoc.printAnswer(2, gridP2.countTiles(Tile.OccupiedSeat))
+
+
+if __name__ == "__main__":
+    main()
