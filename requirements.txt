@@ -2,4 +2,4 @@ click
 
 --index https://python.spgill.me
 --pre
-python-spgill
+python-spgill==7.0.1
